@@ -1,107 +1,205 @@
-# 🏛️ Smart Campus Operations Hub
+````markdown
+# Smart Campus Operations Hub
 
-**GitHub Repository:** [it3030-paf-2026-smart-campus-group129](https://github.com/DulariRupasinghe/it3030-paf-2026-smart-campus-group129)
+**Repository Name:** `it3030-paf-2026-smart-campus-group129`
 
-Welcome to the **Smart Campus Operations Hub**, a comprehensive management system designed to streamline campus resource allocation and real-time notifications. This project is built using a modern stack featuring **Spring Boot** for the backend and **React (Vite)** for the frontend.
+Welcome to the **Smart Campus Operations Hub**. This project was developed to improve the way campus facilities, resources, and notifications are managed through one centralized system. It helps students, staff, and administrators handle day-to-day campus operations more efficiently.
 
----
+The system was built using a modern full-stack approach:
 
-## 🚀 Getting Started
-
-Follow these instructions to get the project up and running on your local machine.
-
-### 📋 Prerequisites
-
-Ensure you have the following installed:
-- **Java 17 or higher** (JDK)
-- **Node.js** (v18.x or later) & **npm**
-- **Maven** (for backend dependency management)
-- **MongoDB** (running locally on port `27017` or via cloud URI)
+- **Backend:** Spring Boot  
+- **Frontend:** React + Vite  
+- **Database:** MongoDB  
 
 ---
 
-## 🛠️ Backend Setup (Spring Boot)
+# How to Run the Project
 
-1. **Navigate to the backend directory:**
-   ```bash
-   cd backend
-   ```
-
-2. **Configure Database:**
-   Update the `src/main/resources/application.properties` file with your MongoDB URI if it differs from the default:
-   ```properties
-   spring.data.mongodb.uri=mongodb://localhost:27017/smartcampus
-   ```
-
-3. **Install Dependencies & Run:**
-   Using Maven:
-   ```bash
-   mvn clean install
-   mvn spring-boot:run
-   ```
-   *Alternatively, import the project into your favorite IDE (IntelliJ IDEA, Eclipse, or VS Code) and run the `SmartCampusApplication.java` file.*
-
-4. **API Endpoint:**
-   The backend server will start at `http://localhost:8080`.
+Please follow the steps below to set up and run the system on your computer.
 
 ---
 
-## 💻 Frontend Setup (React + Vite)
+# Requirements
 
-1. **Navigate to the frontend directory:**
-   ```bash
-   cd frontend
-   ```
+Before starting, make sure you have installed:
 
-2. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start Development Server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Access the App:**
-   Open your browser and navigate to `http://localhost:5173`.
+- Java JDK 17 or above  
+- Node.js (v18 or later)  
+- npm  
+- Apache Maven  
+- MongoDB  
 
 ---
 
-## 📂 Project Structure
+# Backend Setup
+
+### Step 1: Open the backend folder
+
+```bash
+cd backend
+````
+
+### Step 2: Configure MongoDB
+
+Go to the following file:
 
 ```text
-smart-campus-project/
-├── backend/            # Spring Boot REST API
-│   ├── src/main/java   # Java source code
-│   └── pom.xml         # Maven dependencies
-├── frontend/           # React + Vite Application
-│   ├── src/            # Components, Hooks, and Styles
-│   └── package.json    # Frontend dependencies
-└── README.md           # Project documentation
+src/main/resources/application.properties
+```
+
+Use this connection string:
+
+```properties
+spring.data.mongodb.uri=mongodb://localhost:27017/smartcampus
+```
+
+(You can change this if using MongoDB Atlas.)
+
+### Step 3: Run the backend
+
+```bash
+mvn clean install
+mvn spring-boot:run
+```
+
+You can also run the backend using IDEs such as:
+
+* IntelliJ IDEA
+* Eclipse
+* VS Code
+
+Run the main file:
+
+```text
+SmartCampusApplication.java
+```
+
+### Backend URL
+
+```text
+http://localhost:8080
 ```
 
 ---
 
-## ✨ Key Features
+# Frontend Setup
 
-- **Resource Management:** Full CRUD operations for lecture halls, labs, and equipment.
-- **Smart Notifications:** Real-time notification system for resource status updates.
-- **Modern UI:** Responsive design with a professional green-themed aesthetic.
-- **Secure Access:** JWT-based authentication (configured in backend).
+### Step 1: Open frontend folder
+
+```bash
+cd frontend
+```
+
+### Step 2: Install packages
+
+```bash
+npm install
+```
+
+### Step 3: Run frontend
+
+```bash
+npm run dev
+```
+
+### Frontend URL
+
+```text
+http://localhost:5173
+```
 
 ---
 
-## 👥 Group Members
+# Project Folder Structure
 
-| Member | Student ID |
-| :--- | :--- |
-| **Member 1** | IT23401044 |
-| **Member 2** | IT23400122 |
-| **Member 3** | IT23421080 |
+```text
+smart-campus-project/
+
+├── backend/              Spring Boot backend project
+│   ├── src/
+│   └── pom.xml
+
+├── frontend/             React frontend project
+│   ├── src/
+│   └── package.json
+
+└── README.md
+```
 
 ---
 
-## 📝 License
+# Main Features
 
-This project was developed as part of the **PAF (Project Agile Framework)** module.
+### Facility Management
+
+* Manage lecture halls, labs, classrooms, and other campus locations
+* View available facilities easily
+
+### Resource Management
+
+* Add, update, delete, and manage equipment
+* Track resource availability
+
+### Notification System
+
+* Send announcements to users
+* Display important updates instantly
+
+### User Authentication
+
+* Secure login system using JWT
+
+### User Interface
+
+* Clean and responsive design
+* Easy navigation for users
+
+---
+
+# Sample API Endpoints
+
+| Method | Endpoint             | Purpose             |
+| ------ | -------------------- | ------------------- |
+| GET    | /api/facilities      | View all facilities |
+| POST   | /api/facilities      | Add facility        |
+| PUT    | /api/facilities/{id} | Update facility     |
+| DELETE | /api/facilities/{id} | Delete facility     |
+| GET    | /api/notifications   | View notifications  |
+| POST   | /api/notifications   | Send notification   |
+
+---
+
+# Group Members
+
+| Member   | Student ID |
+| -------- | ---------- |
+| Member 1 | IT23401044 |
+| Member 2 | IT23400122 |
+| Member 3 | IT23421080 |
+
+---
+
+# Submission Materials
+
+The final submission includes:
+
+* GitHub source code
+* Final report
+* Screenshots of system functions
+* API testing results
+* Running project demonstration
+
+---
+
+# Note
+
+This project was created as part of the **IT3030 – Project Agile Framework (PAF)** module.
+
+---
+
+# Thank You
+
+Thank you for reviewing our project.
+
+```
+```
