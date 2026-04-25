@@ -1,45 +1,96 @@
-# Smart Campus Operations Hub
+# 🏛️ Smart Campus Operations Hub
 
-This project is developed as part of the PAF module.
+Welcome to the **Smart Campus Operations Hub**, a comprehensive management system designed to streamline campus resource allocation and real-time notifications. This project is built using a modern stack featuring **Spring Boot** for the backend and **React (Vite)** for the frontend.
 
-It includes a Spring Boot backend and a React frontend to manage campus resources and notifications.
+---
 
-## Project Overview
+## 🚀 Getting Started
 
-The system allows users to manage facilities such as lecture halls, labs, and equipment, and receive notifications related to system activities.
+Follow these instructions to get the project up and running on your local machine.
 
-## Modules
+### 📋 Prerequisites
 
-### Module A: Facilities & Assets Catalogue
-- Manage resources (lecture halls, labs, equipment)
-- Store details such as type, capacity, location, and status
-- Perform basic search and filtering
+Ensure you have the following installed:
+- **Java 17 or higher** (JDK)
+- **Node.js** (v18.x or later) & **npm**
+- **Maven** (for backend dependency management)
+- **MongoDB** (running locally on port `27017` or via cloud URI)
 
-### Module D: Notifications System
-- Display notifications related to system updates
-- Notify users when resource status changes
-- Mark notifications as read
+---
 
-## Project Structure
+## 🛠️ Backend Setup (Spring Boot)
 
+1. **Navigate to the backend directory:**
+   ```bash
+   cd backend
+   ```
+
+2. **Configure Database:**
+   Update the `src/main/resources/application.properties` file with your MongoDB URI if it differs from the default:
+   ```properties
+   spring.data.mongodb.uri=mongodb://localhost:27017/smartcampus
+   ```
+
+3. **Install Dependencies & Run:**
+   Using Maven:
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+   ```
+   *Alternatively, import the project into your favorite IDE (IntelliJ IDEA, Eclipse, or VS Code) and run the `SmartCampusApplication.java` file.*
+
+4. **API Endpoint:**
+   The backend server will start at `http://localhost:8080`.
+
+---
+
+## 💻 Frontend Setup (React + Vite)
+
+1. **Navigate to the frontend directory:**
+   ```bash
+   cd frontend
+   ```
+
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start Development Server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Access the App:**
+   Open your browser and navigate to `http://localhost:5173`.
+
+---
+
+## 📂 Project Structure
+
+```text
 smart-campus-project/
-├── backend/        # Spring Boot API  
-├── frontend/       # React application  
+├── backend/            # Spring Boot REST API
+│   ├── src/main/java   # Java source code
+│   └── pom.xml         # Maven dependencies
+├── frontend/           # React + Vite Application
+│   ├── src/            # Components, Hooks, and Styles
+│   └── package.json    # Frontend dependencies
+└── README.md           # Project documentation
+```
 
-## Getting Started
+---
 
-### Backend
-1. Navigate to backend folder  
-2. Run the application using Maven or your IDE  
-3. API runs on http://localhost:8080  
+## ✨ Key Features
 
-### Frontend
-1. Navigate to frontend folder  
-2. Run npm install  
-3. Run npm start or npm run dev  
+- **Resource Management:** Full CRUD operations for lecture halls, labs, and equipment.
+- **Smart Notifications:** Real-time notification system for resource status updates.
+- **Modern UI:** Responsive design with a professional green-themed aesthetic.
+- **Secure Access:** JWT-based authentication (configured in backend).
 
-## Features
+---
 
-- Resource management (CRUD operations)
-- Notification panel with periodic updates (polling)
-- Basic UI for managing and viewing data
+## 📝 License
+
+This project was developed as part of the **PAF (Project Agile Framework)** module.
+
