@@ -105,4 +105,3 @@ smart-campus-project/
 ## 📝 License
 
 This project was developed as part of the **PAF (Project Agile Framework)** module.
-
