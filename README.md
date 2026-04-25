@@ -90,6 +90,16 @@ smart-campus-project/
 
 ---
 
+## 👥 Group Members
+
+| Member | Student ID |
+| :--- | :--- |
+| **Member 1** | IT23401044 |
+| **Member 2** | IT23400122 |
+| **Member 3** | IT23421080 |
+
+---
+
 ## 📝 License
 
 This project was developed as part of the **PAF (Project Agile Framework)** module.
