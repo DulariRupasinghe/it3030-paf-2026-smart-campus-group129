@@ -3,25 +3,25 @@
 
 **Repository Name:** `it3030-paf-2026-smart-campus-group129`
 
-Welcome to the **Smart Campus Operations Hub**. This project was developed to improve the way campus facilities, resources, and notifications are managed through one centralized system. It helps students, staff, and administrators handle day-to-day campus operations more efficiently.
+Smart Campus Operations Hub is a campus management system created to improve the handling of facilities, resources, and notifications. It provides a single platform for students, staff, and administrators to manage important campus activities more efficiently.
 
-The system was built using a modern full-stack approach:
+This project was developed using:
 
-- **Backend:** Spring Boot  
-- **Frontend:** React + Vite  
-- **Database:** MongoDB  
+- Backend: Spring Boot  
+- Frontend: React + Vite  
+- Database: MongoDB  
 
 ---
 
-# How to Run the Project
+# Getting Started
 
-Please follow the steps below to set up and run the system on your computer.
+Follow the steps below to run the project on your local machine.
 
 ---
 
 # Requirements
 
-Before starting, make sure you have installed:
+Please make sure the following are installed:
 
 - Java JDK 17 or above  
 - Node.js (v18 or later)  
@@ -33,48 +33,40 @@ Before starting, make sure you have installed:
 
 # Backend Setup
 
-### Step 1: Open the backend folder
+## Step 1: Open the backend folder
 
 ```bash
 cd backend
 ````
 
-### Step 2: Configure MongoDB
+## Step 2: Configure the database
 
-Go to the following file:
+Open the following file:
 
 ```text
 src/main/resources/application.properties
 ```
 
-Use this connection string:
+Use this MongoDB connection:
 
 ```properties
 spring.data.mongodb.uri=mongodb://localhost:27017/smartcampus
 ```
 
-(You can change this if using MongoDB Atlas.)
-
-### Step 3: Run the backend
+## Step 3: Run the backend
 
 ```bash
 mvn clean install
 mvn spring-boot:run
 ```
 
-You can also run the backend using IDEs such as:
-
-* IntelliJ IDEA
-* Eclipse
-* VS Code
-
-Run the main file:
+You can also open the backend in IntelliJ IDEA, Eclipse, or VS Code and run:
 
 ```text
 SmartCampusApplication.java
 ```
 
-### Backend URL
+## Backend URL
 
 ```text
 http://localhost:8080
@@ -84,25 +76,25 @@ http://localhost:8080
 
 # Frontend Setup
 
-### Step 1: Open frontend folder
+## Step 1: Open the frontend folder
 
 ```bash
 cd frontend
 ```
 
-### Step 2: Install packages
+## Step 2: Install dependencies
 
 ```bash
 npm install
 ```
 
-### Step 3: Run frontend
+## Step 3: Start the frontend
 
 ```bash
 npm run dev
 ```
 
-### Frontend URL
+## Frontend URL
 
 ```text
 http://localhost:5173
@@ -110,16 +102,16 @@ http://localhost:5173
 
 ---
 
-# Project Folder Structure
+# Project Structure
 
 ```text
 smart-campus-project/
 
-├── backend/              Spring Boot backend project
-│   ├── src/
+├── backend/
+│   ├── src/main/java
 │   └── pom.xml
 
-├── frontend/             React frontend project
+├── frontend/
 │   ├── src/
 │   └── package.json
 
@@ -130,42 +122,38 @@ smart-campus-project/
 
 # Main Features
 
-### Facility Management
+## Resource Management
 
-* Manage lecture halls, labs, classrooms, and other campus locations
-* View available facilities easily
+* Manage lecture halls, laboratories, classrooms, and equipment
+* Add, update, view, and remove resources
+* Track availability and status
 
-### Resource Management
+## Notifications
 
-* Add, update, delete, and manage equipment
-* Track resource availability
+* Send campus announcements
+* Show updates to users in real time
 
-### Notification System
+## User Interface
 
-* Send announcements to users
-* Display important updates instantly
+* Responsive design
+* Easy navigation
 
-### User Authentication
+## Security
 
-* Secure login system using JWT
-
-### User Interface
-
-* Clean and responsive design
-* Easy navigation for users
+* JWT-based login and access control
 
 ---
 
 # Sample API Endpoints
 
-| Method | Endpoint             | Purpose             |
+| Method | Endpoint             | Description         |
 | ------ | -------------------- | ------------------- |
 | GET    | /api/facilities      | View all facilities |
-| POST   | /api/facilities      | Add facility        |
+| POST   | /api/facilities      | Add a facility      |
 | PUT    | /api/facilities/{id} | Update facility     |
 | DELETE | /api/facilities/{id} | Delete facility     |
 | GET    | /api/notifications   | View notifications  |
-| POST   | /api/notifications   | Send notification   |
+| POST   | /api/notifications   | Add notification    |
 
 ---
 
@@ -179,27 +167,13 @@ smart-campus-project/
 
 ---
 
-# Submission Materials
-
-The final submission includes:
-
-* GitHub source code
-* Final report
-* Screenshots of system functions
-* API testing results
-* Running project demonstration
-
----
-
 # Note
 
-This project was created as part of the **IT3030 – Project Agile Framework (PAF)** module.
+This project was developed for the IT3030 Project Agile Framework (PAF) module.
 
 ---
 
 # Thank You
-
-Thank you for reviewing our project.
 
 ```
 ```
