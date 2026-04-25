@@ -1,5 +1,7 @@
 # 🏛️ Smart Campus Operations Hub
 
+**GitHub Repository:** [it3030-paf-2026-smart-campus-group129](https://github.com/DulariRupasinghe/it3030-paf-2026-smart-campus-group129)
+
 Welcome to the **Smart Campus Operations Hub**, a comprehensive management system designed to streamline campus resource allocation and real-time notifications. This project is built using a modern stack featuring **Spring Boot** for the backend and **React (Vite)** for the frontend.
 
 ---
