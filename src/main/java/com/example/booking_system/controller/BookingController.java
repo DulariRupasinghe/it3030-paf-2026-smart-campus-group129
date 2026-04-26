@@ -128,7 +128,8 @@ public class BookingController {
             @RequestHeader(value = "X-User-Role", required = false) String roleHeader,
             @RequestHeader(value = "X-User-Email", required = false) String userEmail
     ) {
-        return adminReadonlyResponse();
+        requireRole(roleHeader, userEmail, Role.ADMIN);
+        return ResponseEntity.ok(service.editBookingByAdmin(id, payload));
     }
 
     private ResponseEntity<?> adminReadonlyResponse() {

@@ -351,10 +351,26 @@ function BookingList({
                                 >
                                   Cancel
                                 </button>
+
+                                <button
+                                  className="btn btn-outline-primary btn-sm"
+                                  onClick={() => editByAdminWithPrompt(booking)}
+                                  type="button"
+                                >
+                                  Edit
+                                </button>
                               </>
                             ) : (
                               <div className="booking-actions booking-actions-user">
                                 <span className="booking-action-hint">Reviewed</span>
+
+                                <button
+                                  className="btn btn-outline-primary btn-sm"
+                                  onClick={() => editByAdminWithPrompt(booking)}
+                                  type="button"
+                                >
+                                  Edit
+                                </button>
 
                                 {booking.status === "APPROVED" && (
                                   <button
