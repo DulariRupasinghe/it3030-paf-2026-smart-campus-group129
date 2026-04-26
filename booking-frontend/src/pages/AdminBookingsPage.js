@@ -42,7 +42,7 @@ function AdminBookingsPage({ bookings, session, onRefresh }) {
         bookings={bookings}
         refresh={onRefresh}
         session={session}
-        mode="ADMIN"
+        mode="ADMIN_READONLY"
         label="System-wide view"
         title="All Booking Requests"
         emptyTitle="No bookings available"

@@ -3,6 +3,7 @@ package com.example.bookingsystem.controller;
 import com.example.bookingsystem.model.Booking;
 import com.example.bookingsystem.model.enums.Role;
 import com.example.bookingsystem.service.BookingService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,8 +36,7 @@ public class BookingController {
             @RequestHeader(value = "X-User-Role", required = false) String roleHeader,
             @RequestHeader(value = "X-User-Email", required = false) String userEmail
     ) {
-        requireRole(roleHeader, userEmail, Role.ADMIN);
-        return ResponseEntity.ok(service.approveBooking(id));
+        return adminReadonlyResponse();
     }
 
     @PutMapping("/{id}/reject")
@@ -46,9 +46,7 @@ public class BookingController {
             @RequestHeader(value = "X-User-Role", required = false) String roleHeader,
             @RequestHeader(value = "X-User-Email", required = false) String userEmail
     ) {
-        requireRole(roleHeader, userEmail, Role.ADMIN);
-        String reason = payload.getOrDefault("reason", "");
-        return ResponseEntity.ok(service.rejectBooking(id, reason));
+        return adminReadonlyResponse();
     }
 
     @PutMapping("/{id}/cancel")
@@ -62,7 +60,7 @@ public class BookingController {
         Role role = parseRole(roleHeader);
 
         if (role == Role.ADMIN) {
-            return ResponseEntity.ok(service.cancelByAdmin(id, reason));
+            return adminReadonlyResponse();
         }
 
         if (role == Role.USER) {
@@ -105,9 +103,7 @@ public class BookingController {
             @RequestHeader(value = "X-User-Role", required = false) String roleHeader,
             @RequestHeader(value = "X-User-Email", required = false) String userEmail
     ) {
-        requireRole(roleHeader, userEmail, Role.ADMIN);
-        service.deleteBooking(id);
-        return ResponseEntity.ok(Map.of("message", "Booking deleted."));
+        return adminReadonlyResponse();
     }
 
     @PutMapping("/{id}/cancel/admin")
@@ -117,9 +113,7 @@ public class BookingController {
             @RequestHeader(value = "X-User-Role", required = false) String roleHeader,
             @RequestHeader(value = "X-User-Email", required = false) String userEmail
     ) {
-        requireRole(roleHeader, userEmail, Role.ADMIN);
-        String reason = payload == null ? "" : payload.getOrDefault("reason", "");
-        return ResponseEntity.ok(service.cancelByAdmin(id, reason));
+        return adminReadonlyResponse();
     }
 
     @PatchMapping("/{id}")
@@ -129,8 +123,11 @@ public class BookingController {
             @RequestHeader(value = "X-User-Role", required = false) String roleHeader,
             @RequestHeader(value = "X-User-Email", required = false) String userEmail
     ) {
-        requireRole(roleHeader, userEmail, Role.ADMIN);
-        return ResponseEntity.ok(service.editBookingByAdmin(id, payload));
+        return adminReadonlyResponse();
+    }
+
+    private ResponseEntity<?> adminReadonlyResponse() {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("message", "Admin editing is disabled."));
     }
 
     private void requireRole(String roleHeader, Role expectedRole) {
