@@ -351,34 +351,10 @@ function BookingList({
                                 >
                                   Cancel
                                 </button>
-
-                                <button
-                                  className="btn btn-outline-dark btn-sm"
-                                  onClick={() => deleteBooking(booking.id)}
-                                  type="button"
-                                >
-                                  Delete
-                                </button>
-
-                                <button
-                                  className="btn btn-outline-primary btn-sm"
-                                  onClick={() => editByAdminWithPrompt(booking)}
-                                  type="button"
-                                >
-                                  Edit
-                                </button>
                               </>
                             ) : (
                               <div className="booking-actions booking-actions-user">
                                 <span className="booking-action-hint">Reviewed</span>
-
-                                <button
-                                  className="btn btn-outline-primary btn-sm"
-                                  onClick={() => editByAdminWithPrompt(booking)}
-                                  type="button"
-                                >
-                                  Edit
-                                </button>
 
                                 {booking.status === "APPROVED" && (
                                   <button
@@ -387,16 +363,6 @@ function BookingList({
                                     type="button"
                                   >
                                     Cancel
-                                  </button>
-                                )}
-
-                                {(booking.status === "CANCELLED" || booking.status === "REJECTED" || booking.status === "APPROVED") && (
-                                  <button
-                                    className="btn btn-outline-dark btn-sm"
-                                    onClick={() => deleteBooking(booking.id)}
-                                    type="button"
-                                  >
-                                    Delete
                                   </button>
                                 )}
                               </div>

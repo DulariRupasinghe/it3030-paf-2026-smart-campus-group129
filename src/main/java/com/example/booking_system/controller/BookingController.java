@@ -36,7 +36,8 @@ public class BookingController {
             @RequestHeader(value = "X-User-Role", required = false) String roleHeader,
             @RequestHeader(value = "X-User-Email", required = false) String userEmail
     ) {
-        return adminReadonlyResponse();
+        requireRole(roleHeader, userEmail, Role.ADMIN);
+        return ResponseEntity.ok(service.approveBooking(id));
     }
 
     @PutMapping("/{id}/reject")
@@ -46,7 +47,9 @@ public class BookingController {
             @RequestHeader(value = "X-User-Role", required = false) String roleHeader,
             @RequestHeader(value = "X-User-Email", required = false) String userEmail
     ) {
-        return adminReadonlyResponse();
+        requireRole(roleHeader, userEmail, Role.ADMIN);
+        String reason = payload.getOrDefault("reason", "");
+        return ResponseEntity.ok(service.rejectBooking(id, reason));
     }
 
     @PutMapping("/{id}/cancel")
@@ -60,7 +63,7 @@ public class BookingController {
         Role role = parseRole(roleHeader);
 
         if (role == Role.ADMIN) {
-            return adminReadonlyResponse();
+            return ResponseEntity.ok(service.cancelByAdmin(id, reason));
         }
 
         if (role == Role.USER) {
@@ -113,7 +116,9 @@ public class BookingController {
             @RequestHeader(value = "X-User-Role", required = false) String roleHeader,
             @RequestHeader(value = "X-User-Email", required = false) String userEmail
     ) {
-        return adminReadonlyResponse();
+        requireRole(roleHeader, userEmail, Role.ADMIN);
+        String reason = payload == null ? "" : payload.getOrDefault("reason", "");
+        return ResponseEntity.ok(service.cancelByAdmin(id, reason));
     }
 
     @PatchMapping("/{id}")

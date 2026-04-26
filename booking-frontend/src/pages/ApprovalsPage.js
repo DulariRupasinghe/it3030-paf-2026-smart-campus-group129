@@ -42,7 +42,7 @@ function ApprovalsPage({ bookings, onRefresh, session }) {
         eyebrow="Admin approvals"
         roleLabel="Admin Console"
         title="Approval Desk"
-        subtitle="Review pending requests in read-only mode."
+        subtitle="Review pending requests and approve, reject, or cancel with a reason."
         actionLabel="View all bookings"
         onActionClick={() => navigate("/admin/bookings")}
       />
@@ -80,7 +80,7 @@ function ApprovalsPage({ bookings, onRefresh, session }) {
       <div className="card-box mt-1">
         <div className="d-flex flex-wrap align-items-center justify-content-between gap-2">
           <p className="section-copy mb-0">
-            Admin editing is disabled. You can only review booking statuses.
+            Admin approval actions are enabled: approve, reject, and cancel with reason.
           </p>
         </div>
 
@@ -105,7 +105,7 @@ function ApprovalsPage({ bookings, onRefresh, session }) {
         bookings={filteredBookings}
         refresh={onRefresh}
         session={session}
-        mode="ADMIN_READONLY"
+        mode="ADMIN"
         label="Approval queue"
         title={sectionTitle}
         emptyTitle="No bookings for this status"
@@ -115,7 +115,7 @@ function ApprovalsPage({ bookings, onRefresh, session }) {
 
       <div className="card-box mt-1">
         <p className="section-copy mb-0">
-          Actions are hidden for admin users.
+          Use the Actions column to process approvals and cancellations.
         </p>
       </div>
     </div>
